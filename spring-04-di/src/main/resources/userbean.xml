@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--    P命令空间注入，通过set方法注入-->
+    <bean id="user" class="com.zjy.pojo.User" p:name="P空间" p:age="24" scope="singleton"/>
+    <!--    c命令空间注入，通过有参构造函数注入-->
+    <bean id="user2" class="com.zjy.pojo.User" c:age="18" c:name="c空间" scope="prototype"/>
+
+</beans>
