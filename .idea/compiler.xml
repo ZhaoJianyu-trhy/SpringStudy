@@ -6,11 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-05-自动装配" />
+        <module name="spring-10-mybatis-spring" />
         <module name="spring-02-hellospring" />
+        <module name="spring-04-di" />
+        <module name="spring-09-aop" />
+        <module name="spring-07-java实现配置" />
+        <module name="spring-05-自动装配" />
+        <module name="spring-06-注解" />
         <module name="spring-01-ioc1" />
         <module name="spring-03-ioc创建对象的方式" />
-        <module name="spring-04-di" />
+        <module name="spring-08-代理" />
       </profile>
     </annotationProcessing>
   </component>
