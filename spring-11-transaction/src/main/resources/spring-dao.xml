@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!--    DataSource：使用Spring的数据源替换Mybatis的配置 c3p0 dbcp druid-->
     <!--    这里使用Spring提供的JDBC-->
@@ -26,10 +26,21 @@
         <constructor-arg index="0" ref="sqlSessionFactory"/>
     </bean>
 
-    <bean class="com.zjy.mapper.UserMapperImpl" id="userMapper">
-        <property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
+    <!--    配置声明式事务-->
+    <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
+        <property name="dataSource" ref="dataSource"/>
     </bean>
-    <bean class="com.zjy.mapper.UserMapperImpl2" id="userMapper2">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-    </bean>
+
+    <!--    结合AOP实现事务-->
+    <!--    配置事务的类-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <!--        给哪些方法配置事务-->
+        <!--        配置事务的传播特性-->
+        <tx:attributes>
+            <tx:method name="add"/>
+            <tx:method name="delete"/>
+            <tx:method name="update"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
 </beans>

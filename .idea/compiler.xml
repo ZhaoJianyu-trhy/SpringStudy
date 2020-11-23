@@ -11,6 +11,7 @@
         <module name="spring-04-di" />
         <module name="spring-09-aop" />
         <module name="spring-07-java实现配置" />
+        <module name="spring-11-transaction" />
         <module name="spring-05-自动装配" />
         <module name="spring-06-注解" />
         <module name="spring-01-ioc1" />

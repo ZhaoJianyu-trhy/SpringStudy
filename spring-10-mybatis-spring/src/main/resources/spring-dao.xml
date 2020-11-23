@@ -29,4 +29,7 @@
     <bean class="com.zjy.mapper.UserMapperImpl" id="userMapper">
         <property name="sqlSessionTemplate" ref="sqlSessionTemplate"/>
     </bean>
+    <bean class="com.zjy.mapper.UserMapperImpl2" id="userMapper2">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
 </beans>
